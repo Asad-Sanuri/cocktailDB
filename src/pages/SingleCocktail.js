@@ -28,7 +28,13 @@ export default function SingleCocktail() {
             strIngredient3,
             strIngredient4,
             strIngredient5,
+            strMeasure1,
+            strMeasure2,
+            strMeasure3,
+            strMeasure4,
+            strMeasure5,
           } = data.drinks[0]
+
           const ingredients = [
             strIngredient1,
             strIngredient2,
@@ -36,6 +42,15 @@ export default function SingleCocktail() {
             strIngredient4,
             strIngredient5,
           ]
+
+          const measures = [
+            strMeasure1,
+            strMeasure2,
+            strMeasure3,
+            strMeasure4,
+            strMeasure5,
+          ]
+
           const newCocktail = {
             name,
             image,
@@ -44,6 +59,7 @@ export default function SingleCocktail() {
             glass,
             instructions,
             ingredients,
+            measures,
           }
           setCocktail(newCocktail)
         } else {
@@ -70,6 +86,7 @@ export default function SingleCocktail() {
       glass,
       instructions,
       ingredients,
+      measures,
     } = cocktail
     return (
       <section className='section cocktail-section'>
@@ -98,10 +115,15 @@ export default function SingleCocktail() {
             <p>
               <span className='drink-data'>ingredients :</span>
               {ingredients.map((item, index) => {
-                return item ? <span key={index}> {item}</span> : null
+                return item ? <span key={index}> {item},</span> : null
               })}
             </p>
-          </div>
+            <p>         
+              <span className='drink-data'>measures :</span> {measures.map((item, index) => {
+                return item ? <span key={index}> {item}, </span> : null 
+              })}
+            </p>
+          </div>          
         </div>
       </section>
     )

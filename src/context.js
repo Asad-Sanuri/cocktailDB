@@ -44,9 +44,11 @@ const AppProvider = ({ children }) => {
       setLoading(false)
     }
   },[searchTerm])
+
   useEffect(() => {
     fetchDrinks()
-  }, [searchTerm,fetchDrinks])
+  }, [searchTerm, fetchDrinks])
+  
   return (
     <AppContext.Provider
       value={{ loading, cocktails, searchTerm, setSearchTerm }}
@@ -55,7 +57,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-// make sure use
+// make sure to use
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
